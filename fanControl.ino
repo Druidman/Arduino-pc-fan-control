@@ -12,9 +12,9 @@ enum FANSTATE {
   STOPPED
 };
 FANSTATE fanState = STOPPED;
-int fanSpinStartTime;
-int fanRollStartTime;
-int fanStopStartTime;
+unsigned long fanSpinStartTime;
+unsigned long fanRollStartTime;
+unsigned long fanStopStartTime;
 String message;
 
 void setup() {
@@ -79,14 +79,14 @@ void handleFan(){
 }
 
 void handleSpinningFan(){
-  if (millis() < fanSpinStartTime + FAN_SPIN_TIME){
+  if (millis() - fanSpinStartTime < FAN_SPIN_TIME){
     return ;
   }
   switchFanState(ROLLING);
 }
 
 void handleRollingFan(){
-  if (millis() < fanRollStartTime + FAN_ROLL_TIME){
+  if (millis() - fanRollStartTime < FAN_ROLL_TIME){
     return ;
   }
   switchFanState(SPINNING);
