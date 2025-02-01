@@ -12,9 +12,9 @@ enum FANSTATE {
   STOPPED
 };
 FANSTATE fanState = STOPPED;
-int fanSpinStartTime;
-int fanRollStartTime;
-int fanStopStartTime;
+long fanSpinStartTime;
+long fanRollStartTime;
+long fanStopStartTime;
 String message;
 
 void setup() {
