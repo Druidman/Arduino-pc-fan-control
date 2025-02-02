@@ -1,0 +1,14 @@
+{
+  "name": "pcfancontroller",
+  "version": "1.0.0",
+  "main": "app/main/main.js",
+  "scripts": {
+    "start": "npx electron ."
+  },
+  "author": "Mateusz Kowalski",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "electron": "^34.0.2"
+  }
+}
