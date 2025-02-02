@@ -1,4 +1,9 @@
-document.addEventListener("click",(event)=>{
+import { switchColorIPC, shutdownIPC } from "./ipcHandler.js";
 
-    document.getElementsByTagName("body")[0].style.backgroundColor = "white"
+document.getElementById("switchColor").addEventListener("click",(event)=>{
+    switchColorIPC()
+})
+
+document.getElementById("shutdown").addEventListener("click",(event)=>{
+    shutdownIPC()
 })

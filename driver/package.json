@@ -9,6 +9,7 @@
   "license": "MIT",
   "description": "",
   "dependencies": {
-    "electron": "^34.0.2"
+    "electron": "^34.0.2",
+    "serialport": "^13.0.0"
   }
 }
