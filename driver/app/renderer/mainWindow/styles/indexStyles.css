@@ -1,3 +1,43 @@
-body {
-    background-color: green;
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'monospace';
+    font-size: xx-large;
+
 }
+.slider {
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    background: #3A4147;
+
+}
+
+.controlHolder {
+    width: 100%;
+
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1E2227;
+}
+
+section#fanControl {
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #1A3143;
+    border: #0BBAE8 solid 2px;
+    border-radius: 5px;
+    color:#F7F6F8 ;
+}
+
