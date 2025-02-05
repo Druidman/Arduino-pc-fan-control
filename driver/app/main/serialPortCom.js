@@ -20,7 +20,10 @@ function createPortConnection(){
     return port
 
 }
-
+function writeToPort(port,data){
+    port.write(JSON.stringify(data) + "/")
+}
 module.exports = {
-    createPortConnection
+    createPortConnection,
+    writeToPort
 }

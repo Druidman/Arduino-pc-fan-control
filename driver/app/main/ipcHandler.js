@@ -1,5 +1,5 @@
 const { ipcMain } = require("electron")
-const { createPortConnection } = require("./serialPortCom.js")
+const { createPortConnection, writeToPort } = require("./serialPortCom.js")
 
 function setupIpcHandler(){
     const port = createPortConnection()
@@ -8,11 +8,18 @@ function setupIpcHandler(){
         return false
     }
     ipcMain.on("switchColor",(Event)=>{
-        port.write("CLICK/")
+        writeToPort(port,{"CLICK": 1})
         Event.returnValue = true
     })
     ipcMain.on("shutdown",(Event)=>{
-        port.write("HOLD/")
+        writeToPort(port,{"HOLD": 1})
+        Event.returnValue = true
+    })
+    ipcMain.on("speedRegulation",(Event,speed)=>{
+        data = {
+            "SPEED": speed
+        }
+        writeToPort(port,data)
         Event.returnValue = true
     })
     return true

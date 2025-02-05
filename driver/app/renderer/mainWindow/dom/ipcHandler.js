@@ -4,8 +4,12 @@ function switchColorIPC(){
 function shutdownIPC(){
     window.electronAPI.shutdown()    
 }
+function regulateSpeed(speed){
+    window.electronAPI.regulateSpeed(speed)
+}
 
 export {
     switchColorIPC,
-    shutdownIPC
+    shutdownIPC,
+    regulateSpeed
 }
