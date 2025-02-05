@@ -1,9 +1,12 @@
 const { ipcMain } = require("electron")
-const { SerialPort }  = require("serialport")
-
+const { createPortConnection } = require("./serialPortCom.js")
 
 function setupIpcHandler(){
-    const port = new SerialPort({path: "/dev/ttyUSB0",baudRate: 9600})
+    const port = createPortConnection()
+
+    if (!port){
+        return false
+    }
     ipcMain.on("switchColor",(Event)=>{
         port.write("CLICK/")
         Event.returnValue = true
@@ -12,6 +15,7 @@ function setupIpcHandler(){
         port.write("HOLD/")
         Event.returnValue = true
     })
+    return true
 }
 
 module.exports = { setupIpcHandler }

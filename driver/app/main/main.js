@@ -10,13 +10,19 @@ const createWindow = () => {
         preload: path.join(__dirname, 'preload.js')
     }
   })
-  setupIpcHandler()
+  if (!setupIpcHandler()){
+    app.quit()
+  }
   let path_to_file = path.join(__dirname,"../renderer/mainWindow/pages/index.html")
 
   win.loadFile(path_to_file)
+ 
   
 }
 
 app.whenReady().then(() => {
   createWindow()
+
+
+  
 })
