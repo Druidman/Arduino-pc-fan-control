@@ -1,6 +1,10 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
+#include <FastLED.h>
 
+#define NUM_AIO_LEDS 34
+#define AIO_PIN 8
+CRGB aioLeds[NUM_AIO_LEDS];
 #define FAN_PIN 4
 #define LED_PIN 5
 const int LED_MODES = 28;
@@ -37,6 +41,7 @@ void setup() {
   pinMode(FAN_PIN,OUTPUT);
   pinMode(LED_PIN,OUTPUT);
   handleStoppedFan();
+  FastLED.addLeds<NEOPIXEL, AIO_PIN>(aioLeds, NUM_AIO_LEDS);
 }
 
 void loop() {
@@ -67,29 +72,44 @@ void parseMessage(){
   int doubleClick = doc["DOUBLECLICK"];
   int speed = doc["SPEED"];
 
-  int led_mode = doc["LED_MODE"];
+  int led_mode = doc["CASE_FAN_LED_MODE"];
+  JsonObject aio_rgb = doc["AIO_RGB"];
 
   if (hold){
     holdLED();
   }
-  else if (click){
+  if (click){
     clickLED();
   }
-  else if (doubleClick){
+  if (doubleClick){
     clickLED();
     delay(100);
     clickLED();
   }
-  else if (speed){
+  if (speed){
     switchFanState(STOPPED);
     FAN_SPIN_TIME =  default_fan_spin_time * ((float)speed/100);
     
     switchFanState(SPINNING);
   }
-  else if (led_mode){
+  if (led_mode){
     switchToLedMode(led_mode);
   }
+  if (aio_rgb["r"] ||aio_rgb["g"]||aio_rgb["b"]){
+    changeAioToColor(aio_rgb);
+  }
 
+  
+}
+void changeAioToColor(JsonObject aio_rgb){
+  int r = aio_rgb["r"];
+  int g = aio_rgb["g"];
+  int b = aio_rgb["b"];
+
+  for (int i =0; i<NUM_AIO_LEDS; i++){
+    aioLeds[i].setRGB(r,g,b);
+  }
+  FastLED.show();
   
 }
 void clickLED(){
