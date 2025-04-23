@@ -7,10 +7,10 @@ const { contextBridge, ipcRenderer } = require("electron")
 
 
 contextBridge.exposeInMainWorld("electronAPI", {
-    switchCaseFanColor: ()=> ipcRenderer.sendSync("switchCaseFanColor"),
+    switchColor: ()=> ipcRenderer.sendSync("switchColor"),
     shutdown: ()=> ipcRenderer.sendSync("shutdown"),
     regulateSpeed: (speed)=>ipcRenderer.sendSync("speedRegulation",speed),
-    switchCaseFanLedMode: (mode)=>ipcRenderer.sendSync("switchCaseFanLedMode",mode),
-    changeAioColor: (r,g,b)=>ipcRenderer.sendSync("changeAioColor",r,g,b)
+    switchLedMode: (mode)=>ipcRenderer.sendSync("switchLedMode",mode)
+    
     
 })
