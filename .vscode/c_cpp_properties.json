@@ -18,6 +18,7 @@
                 "/home/towermaxxl/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino",
                 "/home/towermaxxl/.arduino15/packages/arduino/hardware/avr/1.8.6/variants/eightanaloginputs",
                 "/home/towermaxxl/Arduino/libraries/ArduinoJson/src",
+                "/home/towermaxxl/Arduino/libraries/FastLED/src",
                 "/usr/lib/gcc/avr/5.4.0/include",
                 "/usr/lib/gcc/avr/5.4.0/include-fixed",
                 "/usr/lib/avr/include"
