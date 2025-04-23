@@ -3,38 +3,13 @@
   "version": "1.0.0",
   "main": "app/main/main.js",
   "scripts": {
-    "start": "npx electron .",
-    "rebuild": "electron-rebuild -f -w serialport",
-    "build": "electron-builder",
-    "dist": "electron-builder --linux AppImage"
+    "start": "npx electron ."
   },
   "author": "Mateusz Kowalski",
   "license": "MIT",
-  "description": "PC Fan Controller application built with Electron",
+  "description": "",
   "dependencies": {
-    "electron-updater": "^6.1.0",
-    "serialport": "^12.0.0"
-  },
-  "devDependencies": {
     "electron": "^34.0.2",
-    "electron-builder": "^25.1.8",
-    "electron-rebuild": "^3.2.7"
-  },
-  "build": {
-    "appId": "com.FanController",
-    "productName": "FanController",
-    "icon": "FanControllerIcon.png",
-    "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "icon": "FanControllerIcon.png"
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ],
-      "icon": "FanControllerIcon.png"
-    }
+    "serialport": "^13.0.0"
   }
 }

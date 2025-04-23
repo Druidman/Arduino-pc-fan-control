@@ -24,7 +24,7 @@ body {
     background-color: #1E2227;
 }
 
-section#CaseFanControl {
+section#fanControl {
     width: 60%;
     height: 100%;
     padding: 20px;
@@ -33,7 +33,6 @@ section#CaseFanControl {
     flex-direction: column;
     justify-content: space-between;
 }
-
 
 button {
     background-color: #1A3143;
